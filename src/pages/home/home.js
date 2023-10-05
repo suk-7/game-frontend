@@ -1,6 +1,7 @@
 import logo from '../../logo.svg';
 import './home.css';
 
+
 function Home() {
   return (
     <div className="home">
