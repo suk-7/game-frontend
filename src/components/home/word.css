@@ -13,7 +13,9 @@
   font-size: 20px;
   margin-left: 2px;
 }
-
+.inner{
+  float: left;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -9,7 +9,7 @@ function Word({char}) {
     <div className="word">
       {
         char.split('').map((char) => {
-          if (regex.test(char)) { return <input maxLength={1} />  } else { return <>{char}</> }
+          if (regex.test(char)) { return <div className='inner'><input maxLength={1} /> <p>{char }</p></div>  } else { return <>{char}</> }
         })
       }
     </div>
