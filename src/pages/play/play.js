@@ -7,16 +7,20 @@ function Play() {
   const crypt={A:'B', B:'C',C:'D',D:'E',E:'F',F:'G',G:'H',H:'I',I:'J',J:'K',K:'L',L:'M',M:'N',N:'O',O:'P',P:'Q',Q:'R',R:'S',S:'T',T:'U',U:'V',V:'W',W:'X',X:'Y',Y:'Z',Z:'A'}
   var position={}
   var encrypted=''
+  //Split the puzzle(string) into words
   puzzle.split('').map((char,index)=>{
+    //Check whether the letter is already present or not
     if(crypt[char])
     {
       encrypted=encrypted+crypt[char]
       console.log("Inside if")
     }
+    //enter in else when encounter a special char
     else{
       encrypted=encrypted+char
       console.log("Inside else ", char)
     }
+    // for mapper -> position : having all the positions of the characters[W, H, E, R]
     if(!position[char])
     {
       position[char]=[index];
@@ -38,8 +42,8 @@ function Play() {
       </div>
       <div className='quote'>
         {
-          encrypted.split(' ').map((char) => {
-           return <div className='quoteInner'><Word char={char}/>&nbsp;</div>
+          encrypted.split(' ').map((word, index) => {
+           return <div className='quoteInner'><Word word={word} position={position}/>&nbsp;</div>
           }) 
         }
       </div>
