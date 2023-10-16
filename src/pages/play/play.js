@@ -43,7 +43,7 @@ function Play() {
       <div className='quote'>
         {
           encrypted.split(' ').map((word, index) => {
-           return <div className='quoteInner'><Word word={word} position={position}/>&nbsp;</div>
+           return <div className='quoteInner'><Word word={word}/>&nbsp;</div>
           }) 
         }
       </div>
