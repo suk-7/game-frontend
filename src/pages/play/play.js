@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Word from '../../components/home/word';
 import logo from '../../logo.svg';
 import './play.css';
@@ -7,6 +8,7 @@ function Play() {
   const crypt={A:'B', B:'C',C:'D',D:'E',E:'F',F:'G',G:'H',H:'I',I:'J',J:'K',K:'L',L:'M',M:'N',N:'O',O:'P',P:'Q',Q:'R',R:'S',S:'T',T:'U',U:'V',V:'W',W:'X',X:'Y',Y:'Z',Z:'A'}
   var position={}
   var encrypted=''
+  const [enterInputValue,setEnterInputValue]=useState({});
   //Split the puzzle(string) into words
   puzzle.split('').map((char,index)=>{
     //Check whether the letter is already present or not
@@ -43,7 +45,10 @@ function Play() {
       <div className='quote'>
         {
           encrypted.split(' ').map((word, index) => {
-           return <div className='quoteInner'><Word word={word}/>&nbsp;</div>
+            //passing the splitted word('WHERE') in Word
+            //enterInputValue for storing the value entered by user
+            //setEnterInputValue for setting new value(encrypted) one 
+           return <div className='quoteInner'><Word word={word} enterInputValue={enterInputValue} setEnterInputValue={setEnterInputValue}/>&nbsp;</div>
           }) 
         }
       </div>

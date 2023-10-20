@@ -16,6 +16,9 @@
 .inner{
   float: left;
 }
+.innerBlock{
+  float: left;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
