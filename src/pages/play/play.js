@@ -8,6 +8,7 @@ function Play() {
   const crypt={A:'B', B:'C',C:'D',D:'E',E:'F',F:'G',G:'H',H:'I',I:'J',J:'K',K:'L',L:'M',M:'N',N:'O',O:'P',P:'Q',Q:'R',R:'S',S:'T',T:'U',U:'V',V:'W',W:'X',X:'Y',Y:'Z',Z:'A'}
   var position={}
   var encrypted=''
+  var flag=1;
   const [enterInputValue,setEnterInputValue]=useState({});
   //Split the puzzle(string) into words
   puzzle.split('').map((char,index)=>{
@@ -23,16 +24,35 @@ function Play() {
       console.log("Inside else ", char)
     }
     // for mapper -> position : having all the positions of the characters[W, H, E, R]
-    if(!position[char])
-    {
-      position[char]=[index];
-    }
-    else{
-      var fetch=position[char];
-      fetch.push(index);
-      position[char]=fetch;
-    }
+    // if(!position[char])
+    // {
+    //   position[char]=[index];
+    // }
+    // else{
+    //   var fetch=position[char];
+    //   fetch.push(index);
+    //   position[char]=fetch;
+    // }
   })
+  
+  //For checking each letter of the word .. Whether it is correct ? 
+  //After clicking on the Let's Check Button
+  const check=()=>{
+    for(const key in enterInputValue){
+      console.log(`${key}:${enterInputValue[key]}`);
+      if(crypt[enterInputValue[key]]==key)
+      {
+        //Correct Value; Continue checking
+      }
+      else
+      {
+        console.log('So Sorry! Please try again');
+        flag=0;
+      }
+    }
+    if(flag==1)
+      console.log('Yahoo !, you did it');
+  }
   console.log(encrypted)
   return (
     <div className="play">
@@ -52,7 +72,7 @@ function Play() {
           }) 
         }
       </div>
-
+      <button class ="btn" onClick={check} type="submit">Let's Check</button>
     </div>
   );
 }
